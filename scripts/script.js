@@ -1,7 +1,7 @@
 const popupElement = document.querySelector('.popup');
 const closeButton = popupElement.querySelector('.popup__close-button');
 let profile = document.querySelector('.profile');
-const openButton = profile.querySelector('.popup__open-button');
+const openButton = profile.querySelector('.profile__open-button');
 
 function closePopup() {
   popupElement.classList.remove('popup_opened');

@@ -2,8 +2,3 @@
   width: 100%;
   margin: 0 auto;
 }
-@media screen and (max-width: 750px) {
-  .header {
-    padding: 0 27px;
-  }
-}

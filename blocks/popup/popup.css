@@ -1,7 +1,7 @@
 .popup {
   display: none;
   align-items: center;
-  position: absolute;
+  position: fixed;
   background: rgba(0, 0, 0, 0.5);
   z-index: 100;
   top: 0;

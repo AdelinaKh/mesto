@@ -2,102 +2,72 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
     <title>Mesto</title>
     <link rel="stylesheet" href="./pages/index.css" />
   </head>
   <body class="page">
     <div class="page__container">
       <header class="header section">
-        <img class="header__logo" src="images/Vector.png" alt="логотип" />
-        <div class="header__line"></div>
+        <img class="header__logo" src="images/logo.svg" alt="логотип" />
       </header>
       <main>
         <section class="profile section page__content">
           <div class="profile__description">
-            <div class="profile__avatar"></div>
+            <img src="./images/image.jpg" class="profile__avatar" alt="аватар" />
             <div class="profile__block">
               <div class="profile__element">
-                <h1 class="profile__name">Жак-Ив Кусто</h1>
-                <p class="profile__job">Исследователь океана</p>
+                <h1 class="profile__name block">Жак-Ив Кусто</h1>
+                <p class="profile__job block">Исследователь океана</p>
               </div>
-              <div class="profile__button">
-                <button class="profile__open-button"></button>
-              </div>
+              <button type="button" class="profile__open-button"></button>
             </div>
           </div>
-          <button class="profile__add-button"></button>
+          <button type="button" class="profile__add-button"></button>
         </section>
         <section class="elements section page__content">
-          <div class="element">
-            <img
-              class="element__image"
-              src="images/roman-forum.jpg"
-              alt="Римский Форум"
-            />
+          <article class="element">
+            <img class="element__image" src="images/roman-forum.jpg" alt="Римский Форум" />
             <div class="element__description">
-              <p class="element__title block">Римский Форум</p>
-              <button class="element__like"></button>
+              <h2 class="element__title block">Римский Форум</h2>
+              <button type="button" class="element__like"></button>
             </div>
-          </div>
-          <div class="element">
-            <img
-              class="element__image"
-              src="images/trevi-fountain.jpg"
-              alt="Фонтан Треви"
-            />
+          </article>
+          <article class="element">
+            <img class="element__image" src="images/trevi-fountain.jpg" alt="Фонтан Треви" />
             <div class="element__description">
-              <p class="element__title block">Фонтан Треви</p>
-              <button class="element__like"></button>
+              <h2 class="element__title block">Фонтан Треви</h2>
+              <button type="button" class="element__like"></button>
             </div>
-          </div>
-          <div class="element">
-            <img
-              class="element__image"
-              src="images/italy-rome-vatican-city.jpg"
-              alt="Ватикан"
-            />
+          </article>
+          <article class="element">
+            <img class="element__image" src="images/italy-rome-vatican-city.jpg" alt="Ватикан" />
             <div class="element__description">
-              <p class="element__title block">Ватикан</p>
-              <button class="element__like"></button>
+              <h2 class="element__title block">Ватикан</h2>
+              <button type="button" class="element__like"></button>
             </div>
-          </div>
-          <div class="element">
-            <img
-              class="element__image"
-              src="images/italy-rome-colosseum.jpg"
-              alt="Колизей"
-            />
+          </article>
+          <article class="element">
+            <img class="element__image" src="images/italy-rome-colosseum.jpg" alt="Колизей" />
             <div class="element__description">
-              <p class="element__title block">Колизей</p>
-              <button class="element__like"></button>
+              <h2 class="element__title block">Колизей</h2>
+              <button type="button" class="element__like"></button>
             </div>
-          </div>
-          <div class="element">
-            <img
-              class="element__image"
-              src="images/pantheon.jpg"
-              alt="Пантеон"
-            />
+          </article>
+          <article class="element">
+            <img class="element__image" src="images/pantheon.jpg" alt="Пантеон" />
             <div class="element__description">
-              <p class="element__title block">Пантеон</p>
-              <button class="element__like"></button>
+              <h2 class="element__title block">Пантеон</h2>
+              <button type="button" class="element__like"></button>
             </div>
-          </div>
-          <div class="element">
-            <img
-              class="element__image"
-              src="images/Roma-piazza-navona-slide.jpg"
-              alt="Пьяцца Навона"
-            />
+          </article>
+          <article class="element">
+            <img class="element__image" src="images/Roma-piazza-navona-slide.jpg" alt="Пьяцца Навона" />
             <div class="element__description">
-              <p class="element__title block">Пьяцца Навона</p>
-              <button class="element__like"></button>
+              <h2 class="element__title block">Пьяцца Навона</h2>
+              <button type="button" class="element__like"></button>
             </div>
-          </div>
+          </article>
         </section>
       </main>
       <footer class="footer section">
@@ -105,20 +75,12 @@
       </footer>
       <div class="popup">
         <div class="popup__container">
-          <button class="popup__close-button"></button>
-          <form class="popup__content">
-            <h2 class="popup__title">Редактировать профиль</h2>
-            <input
-              class="popup__text popup__text_input_name"
-              type="text"
-              value="Жак-Ив Кусто"
-            />
-            <input
-              class="popup__text popup__text_input_job"
-              type="text"
-              value="Исследователь океана"
-            />
-            <input type="submit" value="Сохранить" class="popup__save-button" />
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <button type="button" class="popup__close-button"></button>
+          <form name="popup" class="popup__content">
+            <input name="name" class="popup__text popup__text_input_name" type="text" value="" autocomplete="off" />
+            <input name="job" class="popup__text popup__text_input_job" type="text" value="" autocomplete="off" />
+            <button type="submit" class="popup__save-button">Сохранить</button>
           </form>
         </div>
       </div>

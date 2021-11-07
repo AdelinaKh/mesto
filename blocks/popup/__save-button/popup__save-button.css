@@ -9,9 +9,10 @@
   background-color: black;
   color: white;
   cursor: pointer;
+  border-radius: 2px;
 }
 .popup__save-button:hover {
-  opacity: 0.6;
+  opacity: 0.25;
 }
 @media screen and (max-width: 600px) {
   .popup__save-button {

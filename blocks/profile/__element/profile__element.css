@@ -3,7 +3,7 @@
   flex-direction: column;
   max-width: 294px;
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 750px) {
   .profile__element {
     max-width: 189px;
   }

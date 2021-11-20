@@ -24,66 +24,44 @@
             </div>
           </div>
           <button type="button" class="profile__add-button"></button>
-        </section>
-        <section class="elements section page__content">
-          <article class="element">
-            <img class="element__image" src="images/roman-forum.jpg" alt="Римский Форум" />
-            <div class="element__description">
-              <h2 class="element__title block">Римский Форум</h2>
-              <button type="button" class="element__like"></button>
-            </div>
-          </article>
-          <article class="element">
-            <img class="element__image" src="images/trevi-fountain.jpg" alt="Фонтан Треви" />
-            <div class="element__description">
-              <h2 class="element__title block">Фонтан Треви</h2>
-              <button type="button" class="element__like"></button>
-            </div>
-          </article>
-          <article class="element">
-            <img class="element__image" src="images/italy-rome-vatican-city.jpg" alt="Ватикан" />
-            <div class="element__description">
-              <h2 class="element__title block">Ватикан</h2>
-              <button type="button" class="element__like"></button>
-            </div>
-          </article>
-          <article class="element">
-            <img class="element__image" src="images/italy-rome-colosseum.jpg" alt="Колизей" />
-            <div class="element__description">
-              <h2 class="element__title block">Колизей</h2>
-              <button type="button" class="element__like"></button>
-            </div>
-          </article>
-          <article class="element">
-            <img class="element__image" src="images/pantheon.jpg" alt="Пантеон" />
-            <div class="element__description">
-              <h2 class="element__title block">Пантеон</h2>
-              <button type="button" class="element__like"></button>
-            </div>
-          </article>
-          <article class="element">
-            <img class="element__image" src="images/Roma-piazza-navona-slide.jpg" alt="Пьяцца Навона" />
-            <div class="element__description">
-              <h2 class="element__title block">Пьяцца Навона</h2>
-              <button type="button" class="element__like"></button>
-            </div>
-          </article>
-        </section>
+          </section>
+        <section class="elements section page__content"></section>
       </main>
       <footer class="footer section">
         <p class="footer__text">© 2021 Mesto Rome</p>
       </footer>
-      <div class="popup">
+      <div class="popup popup_profile">
         <div class="popup__container">
           <h2 class="popup__title">Редактировать профиль</h2>
           <button type="button" class="popup__close-button"></button>
-          <form name="popup" class="popup__content">
+          <form name="popup" class="popup__content_profile">
             <input name="name" class="popup__text popup__text_input_name" type="text" value="" autocomplete="off" />
             <input name="job" class="popup__text popup__text_input_job" type="text" value="" autocomplete="off" />
             <button type="submit" class="popup__save-button">Сохранить</button>
           </form>
         </div>
       </div>
+      <div class="popup popup_cards">
+        <div class="popup__container">
+          <h2 class="popup__title">Новое место</h2>
+          <button type="button" class="popup__close-button"></button>
+          <form name="popup" class="popup__content popup__content_cards">
+            <input name="name" class="popup__text popup__text_input_name" type="text" value="" placeholder="Название" autocomplete="off" />
+            <input name="link" class="popup__text popup__text_input_link" type="text" value="" placeholder="Ссылка на картинку" autocomplete="off" />
+            <button type="submit" class="popup__save-button">Создать</button>
+          </form>
+        </div>
+      </div>
+      <template id="cards" class="template">
+          <article class="element">
+            <img class="element__image" src="" alt="" />
+            <div class="element__description">
+              <h2 class="element__title block"></h2>
+              <button type="button" class="element__like"></button>
+              <button type="button" class="element__delete"></button>
+            </div>
+          </article>
+      </template>
     </div>
     <script src="./scripts/script.js"></script>
   </body>

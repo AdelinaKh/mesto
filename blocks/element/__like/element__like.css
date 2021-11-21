@@ -5,6 +5,7 @@
   cursor: pointer;
   height: 19px;
   width: 22px;
+  padding: 0 11px;
 }
 .element__like:hover {
   opacity: 0.5;

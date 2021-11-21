@@ -1,40 +1,48 @@
+//profile
 const popupElement = document.querySelector('.popup_profile');
 const profileElement = document.querySelector('.profile');
-const cardElement = document.querySelector('.popup_cards');
-const closeButton = popupElement.querySelector('.popup__close-button');
-const openButton = profileElement.querySelector('.profile__open-button');
 const inputName = popupElement.querySelector('.popup__text_input_name');
 const inputJob = popupElement.querySelector('.popup__text_input_job');
 const profileName = profileElement.querySelector('.profile__name');
 const profileJob = profileElement.querySelector('.profile__job');
-const templateElement = document.querySelector('.elements');
 const formProfile = popupElement.querySelector('.popup__content_profile');
+const closeButton = popupElement.querySelector('.popup__close-button');
+const openButton = profileElement.querySelector('.profile__open-button');
+//cards
 const initialCards = [
   {
-    title: 'Римский Форум', 
-    src: '../images/roman-forum.jpg'
+    alt: 'Капова пещера',
+    title: 'Капова пещера', 
+    src: '../images/CapovaPeshera.jpg'
   },
   {
-    title: 'Фонтан Треви', 
-    src: '../images/trevi-fountain.jpg'
+    alt: 'Гора Куштау', 
+    title: 'Гора Куштау', 
+    src: '../images/GoraKushtay.jpg'
   },
   {
-    title: 'Ватикан', 
-    src: '../images/italy-rome-vatican-city.jpg'
+    alt: 'Инзерские зубчатки',
+    title: 'Инзерские зубчатки', 
+    src: '../images/InzerskieZubchatki.jpg'
   },
   {
-    title: 'Колизей', 
-    src: '../images/italy-rome-colosseum.jpg'
+    alt: 'Мурадымовское ущелье',
+    title: 'Мурадымовское ущелье', 
+    src: '../images/MuradymovskoeUshelie.jpg'
   },
   {
-    title: 'Пантеон', 
-    src: '../images/pantheon.jpg'
+    alt: 'Нугушское водохранилище',
+    title: 'Нугушское водохранилище', 
+    src: '../images/NugushskoeVodohranilishe.jpg'
   },
   {
-    title: 'Пьяцца Навона', 
-    src: '../images/Roma-piazza-navona-slide.jpg'
+    alt: 'Водопад Атыш',
+    title: 'Водопад Атыш', 
+    src: '../images/VodopadAtysh.jpg'
   }
 ];
+const cardElement = document.querySelector('.popup_cards');
+const templateElement = document.querySelector('.elements');
 const formCards = document.querySelector('.popup__content_cards');
 const cardsName = formCards.querySelector('.popup__text_input_name');
 const cardsLink = formCards.querySelector('.popup__text_input_link');
@@ -45,6 +53,7 @@ const createTaskDomNode = (item) => {
   const cardsTemplate = template.content.querySelector('.element').cloneNode(true);
   cardsTemplate.querySelector('.element__title').textContent = item.title;
   cardsTemplate.querySelector('.element__image').src = item.src;
+  cardsTemplate.querySelector('.element__image').alt = item.alt;
   const deleteButton = cardsTemplate.querySelector('.element__delete');
 	deleteButton.addEventListener('click', () => {
 		cardsTemplate.remove();
@@ -54,6 +63,21 @@ const createTaskDomNode = (item) => {
     evt.preventDefault();
     evt.currentTarget.classList.toggle('element__like_active');
   });
+  //popupResize
+  const resizeElement = document.querySelector('.popup_resize');
+  const closeButtonImage = resizeElement.querySelector('.popup__close-button');
+  const openImage = resizeElement.querySelector('.popup__image');
+  const titleImage = resizeElement.querySelector('.popup__description');
+  const elementImage = cardsTemplate.querySelector('.element__image'); 
+  elementImage.addEventListener('click', function (evt){
+   evt.preventDefault();
+   openImage.src = evt.currentTarget.src;
+   titleImage.textContent = evt.target.alt;
+   resizeElement.classList.add('popup_opened');
+  });
+  closeButtonImage.addEventListener('click', () => {
+    resizeElement.classList.remove('popup_opened');
+});
   return cardsTemplate;
 }
  const result = initialCards.map((item) => {

@@ -5,7 +5,7 @@ const inputName = popupElement.querySelector('.popup__text_input_name');
 const inputJob = popupElement.querySelector('.popup__text_input_job');
 const profileName = profileElement.querySelector('.profile__name');
 const profileJob = profileElement.querySelector('.profile__job');
-const formProfile = popupElement.querySelector('.popup__content_profile');
+const formProfile = popupElement.querySelector('.popup__content-profile');
 const closeButton = popupElement.querySelector('.popup__close-button');
 const openButton = profileElement.querySelector('.profile__open-button');
 //cards
@@ -43,7 +43,7 @@ const initialCards = [
 ];
 const cardElement = document.querySelector('.popup_cards');
 const templateElement = document.querySelector('.elements');
-const formCards = document.querySelector('.popup__content_cards');
+const formCards = document.querySelector('.popup__content-cards');
 const cardsName = formCards.querySelector('.popup__text_input_name');
 const cardsLink = formCards.querySelector('.popup__text_input_link');
 const template = document.querySelector('.template');

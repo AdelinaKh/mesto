@@ -1,13 +1,14 @@
+const popup = document.querySelector('.popup');
 //profile
-const popupElement = document.querySelector('.popup_profile');
+const profilePopup = document.querySelector('.popup_profile');
 const profileElement = document.querySelector('.profile');
-const inputName = popupElement.querySelector('.popup__text_input_name');
-const inputJob = popupElement.querySelector('.popup__text_input_job');
+const inputName = profilePopup.querySelector('.popup__text_input_name');
+const inputJob = profilePopup.querySelector('.popup__text_input_job');
 const profileName = profileElement.querySelector('.profile__name');
 const profileJob = profileElement.querySelector('.profile__job');
-const formProfile = popupElement.querySelector('.popup__content-profile');
-const closeButton = popupElement.querySelector('.popup__close-button');
-const openButton = profileElement.querySelector('.profile__open-button');
+const formProfile = profilePopup.querySelector('.popup__content-profile');
+const buttonCloseProfile = profilePopup.querySelector('.popup__close-button');
+const openProfileButton = profileElement.querySelector('.profile__open-button');
 //cards
 const initialCards = [
   {
@@ -41,19 +42,23 @@ const initialCards = [
     src: 'images/VodopadAtysh.jpg'
   }
 ];
-const cardElement = document.querySelector('.popup_cards');
+const cardPopup = document.querySelector('.popup_cards');
 const templateElement = document.querySelector('.elements');
 const formCards = document.querySelector('.popup__content-cards');
 const cardsName = formCards.querySelector('.popup__text_input_name');
 const cardsLink = formCards.querySelector('.popup__text_input_link');
 const template = document.querySelector('.template');
 const openCardsButton = profileElement.querySelector('.profile__add-button');
-const closeCardButton = cardElement.querySelector('.popup__close-button');
+const buttonCloseCard = cardPopup.querySelector('.popup__close-button');
+const resizeElement = document.querySelector('.popup_resize');
+const buttonCloseImage = resizeElement.querySelector('.popup__close-button');
 const createTaskDomNode = (item) => {
   const cardsTemplate = template.content.querySelector('.element').cloneNode(true);
-  cardsTemplate.querySelector('.element__title').textContent = item.title;
-  cardsTemplate.querySelector('.element__image').src = item.src;
-  cardsTemplate.querySelector('.element__image').alt = item.alt;
+  const elementTitle = cardsTemplate.querySelector('.element__title');
+  const elementImage = cardsTemplate.querySelector('.element__image');
+  elementTitle.textContent = item.title;
+  elementImage.src = item.src;
+  elementImage.alt = item.alt;
   const deleteButton = cardsTemplate.querySelector('.element__delete');
 	deleteButton.addEventListener('click', () => {
 		cardsTemplate.remove();
@@ -64,62 +69,71 @@ const createTaskDomNode = (item) => {
     evt.currentTarget.classList.toggle('element__like_active');
   });
   //popupResize
-  const resizeElement = document.querySelector('.popup_resize');
-  const closeButtonImage = resizeElement.querySelector('.popup__close-button');
   const openImage = resizeElement.querySelector('.popup__image');
   const titleImage = resizeElement.querySelector('.popup__description');
-  const elementImage = cardsTemplate.querySelector('.element__image'); 
+  //открытие popupResize
   elementImage.addEventListener('click', function (evt){
    evt.preventDefault();
    openImage.src = evt.currentTarget.src;
-   titleImage.textContent = evt.target.alt;
-   resizeElement.classList.add('popup_opened');
+   openImage.alt = evt.currentTarget.alt;
+   titleImage.textContent = evt.currentTarget.alt;
+   openPopup(resizeElement);
   });
-  closeButtonImage.addEventListener('click', () => {
-    resizeElement.classList.remove('popup_opened');
-});
   return cardsTemplate;
 }
  const result = initialCards.map((item) => {
  	return createTaskDomNode(item);
  });
-function SubmitFormCards (evt) {
+//Обработчик формы 
+function submitFormCards (evt) {
 	evt.preventDefault(); 
   const titleValue = cardsName.value;
   const linkValue = cardsLink.value;
   const taskString = createTaskDomNode({ title: titleValue, src: linkValue});
   templateElement.prepend(taskString);
+  closePopup(cardPopup);
+  cardsName.value = '';
+  cardsLink.value = '';
 }
-function openPopupCards() {
-  cardElement.classList.add('popup_opened');
+//Функция открытия popup
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
 }
-function closePopupCards() {
-  cardElement.classList.remove('popup_opened');
+//Функция закрытия popup
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
 }
-function closePopup() {
-  popupElement.classList.remove('popup_opened');
-}
-function openPopup() {
+//Функция открытия PopupProfile
+function openPopupProfile() {
   inputName.value = profileName.textContent;
   inputJob.value = profileJob.textContent;
-  popupElement.classList.add('popup_opened');
+  openPopup(popup);
 }
+//Функция открытия PopupCards
+function openPopupCards() {
+  openPopup(cardPopup);
+}
+buttonCloseCard.addEventListener('click', () =>{
+  closePopup(cardPopup);
+});
+buttonCloseImage.addEventListener('click', () =>{
+  closePopup(resizeElement);
+});
+buttonCloseProfile.addEventListener('click', () =>{
+  closePopup(profilePopup);
+});
 // Обработчик «отправки» формы, хотя пока она никуда отправляться не будет
-function SubmitFormProfile (evt) {
+function submitFormProfile (evt) {
 	evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
 												// Так мы можем определить свою логику отправки.
 
 	// Находим поля формы в DOM
   profileName.textContent = inputName.value;
   profileJob.textContent = inputJob.value;
-  closePopup ();
+  closePopup(popup);
 }
-// Прикрепляем обработчик к форме:
-// он будет следить за событием “submit” - «отправка»
 templateElement.append(...result);
-formProfile.addEventListener('submit', SubmitFormProfile);
-formCards.addEventListener('submit', SubmitFormCards);
-openButton.addEventListener('click', openPopup);
-closeButton.addEventListener('click', closePopup);
+formProfile.addEventListener('submit', submitFormProfile);
+formCards.addEventListener('submit', submitFormCards);
+openProfileButton.addEventListener('click', openPopupProfile);
 openCardsButton.addEventListener('click', openPopupCards);
-closeCardButton.addEventListener('click', closePopupCards);

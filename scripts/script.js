@@ -2,11 +2,11 @@ const popup = document.querySelector('.popup');
 //profile
 const profilePopup = document.querySelector('.popup_profile');
 const profileElement = document.querySelector('.profile');
-const inputName = profilePopup.querySelector('.popup__text_input_name');
-const inputJob = profilePopup.querySelector('.popup__text_input_job');
+const formProfile = document.forms.profile_form;
+const inputName = formProfile.elements.name;
+const inputJob = formProfile.elements.job;
 const profileName = profileElement.querySelector('.profile__name');
 const profileJob = profileElement.querySelector('.profile__job');
-const formProfile = profilePopup.querySelector('.popup__content-profile');
 const buttonCloseProfile = profilePopup.querySelector('.popup__close-button');
 const openProfileButton = profileElement.querySelector('.profile__open-button');
 //cards
@@ -44,9 +44,9 @@ const initialCards = [
 ];
 const cardPopup = document.querySelector('.popup_cards');
 const templateElement = document.querySelector('.elements');
-const formCards = document.querySelector('.popup__content-cards');
-const cardsName = formCards.querySelector('.popup__text_input_name');
-const cardsLink = formCards.querySelector('.popup__text_input_link');
+const formCards = document.forms.cards_form;
+const cardsName = formCards.elements.name;
+const cardsLink = formCards.elements.link;
 const template = document.querySelector('.template');
 const openCardsButton = profileElement.querySelector('.profile__add-button');
 const buttonCloseCard = cardPopup.querySelector('.popup__close-button');
@@ -59,10 +59,12 @@ const createTaskDomNode = (item) => {
   elementTitle.textContent = item.title;
   elementImage.src = item.src;
   elementImage.alt = item.alt;
+  //кнопка delete
   const deleteButton = cardsTemplate.querySelector('.element__delete');
 	deleteButton.addEventListener('click', () => {
 		cardsTemplate.remove();
 	});
+  //кнопка like
   const likeButton = cardsTemplate.querySelector('.element__like');
   likeButton.addEventListener('click', function (evt){
     evt.preventDefault();
@@ -91,9 +93,8 @@ function submitFormCards (evt) {
   const linkValue = cardsLink.value;
   const taskString = createTaskDomNode({ title: titleValue, src: linkValue});
   templateElement.prepend(taskString);
+  formCards.reset();
   closePopup(cardPopup);
-  cardsName.value = '';
-  cardsLink.value = '';
 }
 //Функция открытия popup
 function openPopup(popup) {
@@ -113,6 +114,24 @@ function openPopupProfile() {
 function openPopupCards() {
   openPopup(cardPopup);
 }
+//Закрытие popup ESC
+const keyHandler = (evt) => {
+if (evt.key === 'Escape') {
+  closePopup(cardPopup);
+  closePopup(profilePopup);
+  }
+}
+//Закрытие popup overlay
+document.addEventListener('click', (e) => {
+  if(e.target === cardPopup) {
+  closePopup(cardPopup);
+  }
+});
+document.addEventListener('click', (e) => {
+  if(e.target === profilePopup) {
+  closePopup(profilePopup);
+  }
+});
 buttonCloseCard.addEventListener('click', () =>{
   closePopup(cardPopup);
 });
@@ -123,17 +142,14 @@ buttonCloseProfile.addEventListener('click', () =>{
   closePopup(profilePopup);
 });
 // Обработчик «отправки» формы, хотя пока она никуда отправляться не будет
-function submitFormProfile (evt) {
-	evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-												// Так мы можем определить свою логику отправки.
-
-	// Находим поля формы в DOM
+formProfile.addEventListener('submit', function(evt) {
+  evt.preventDefault();
   profileName.textContent = inputName.value;
   profileJob.textContent = inputJob.value;
   closePopup(popup);
-}
+});
 templateElement.append(...result);
-formProfile.addEventListener('submit', submitFormProfile);
 formCards.addEventListener('submit', submitFormCards);
 openProfileButton.addEventListener('click', openPopupProfile);
 openCardsButton.addEventListener('click', openPopupCards);
+document.addEventListener('keydown', keyHandler);

@@ -17,8 +17,8 @@
             <img src="./images/image.jpg" class="profile__avatar" alt="аватар" />
             <div class="profile__block">
               <div class="profile__element">
-                <h1 class="profile__name block">Жак-Ив Кусто</h1>
-                <p class="profile__job block">Исследователь океана</p>
+                <h1 class="profile__input profile__name block">Жак-Ив Кусто</h1>
+                <p class="profile__input profile__job block">Исследователь океана</p>
               </div>
               <button type="button" class="profile__open-button"></button>
             </div>
@@ -32,22 +32,26 @@
       </footer>
       <div class="popup popup_profile">
         <div class="popup__container">
-          <h2 class="popup__title">Редактировать профиль</h2>
-          <button type="button" class="popup__close-button"></button>
-          <form name="popup" class="popup__content-profile">
-            <input name="name" class="popup__text popup__text_input_name" type="text" value="" autocomplete="off" />
-            <input name="job" class="popup__text popup__text_input_job" type="text" value="" autocomplete="off" />
+          <form name="profile_form" class="popup__form popup__content-profile" novalidate>
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <button type="button" class="popup__close-button"></button>
+            <input id="name" name="name" class="popup__text popup__text_input_name" type="text" value="" placeholder="Имя" autocomplete="off" minlength="2" maxlength="40" required />
+            <span class="popup__input-error" id="name-error">Вы пропустили это поле.</span>
+            <input id="job" name="job" class="popup__text popup__text_input_job" type="text" value="" placeholder="О себе" autocomplete="off" minlength="2" maxlength="200" required />
+            <span class="popup__input-error" id="job-error">Вы пропустили это поле.</span>
             <button type="submit" class="popup__save-button">Сохранить</button>
           </form>
         </div>
       </div>
       <div class="popup popup_cards">
         <div class="popup__container">
-          <h2 class="popup__title">Новое место</h2>
-          <button type="button" class="popup__close-button"></button>
-          <form id="form" name="popup" class="popup__content-cards">
-            <input name="name" class="popup__text popup__text_input_name" type="text" value="" placeholder="Название" autocomplete="off" />
-            <input name="link" class="popup__text popup__text_input_link" type="text" value="" placeholder="Ссылка на картинку" autocomplete="off" />
+          <form name="cards_form" class="popup__form popup__content-cards" novalidate>
+            <h2 class="popup__title">Новое место</h2>
+            <button type="button" class="popup__close-button"></button>
+            <input id="title" name="name" class="popup__text popup__text_input_name" type="text" value="" placeholder="Название" autocomplete="off" minlength="1" maxlength="30" required />
+            <span class="popup__input-error" id="title-error">Вы пропустили это поле.</span>
+            <input id="link" name="link" class="popup__text popup__text_input_link" type="url" value="" placeholder="Ссылка на картинку" autocomplete="off" required />
+            <span class="popup__input-error" id="link-error">Введите адрес сайта.</span>
             <button type="submit" class="popup__save-button">Создать</button>
           </form>
         </div>
@@ -71,5 +75,6 @@
       </template>
     </div>
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>

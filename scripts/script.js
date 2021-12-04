@@ -53,6 +53,8 @@ const createCard = (item) => {
  const result = initialCards.map((item) => {
  	return createCard(item);
  });
+//кнопка submit
+const buttonSubmit = formCards.querySelector('.popup__save-button');
 //Обработчик формы карточек
 function submitFormCards (evt) {
 	evt.preventDefault(); 
@@ -60,10 +62,9 @@ function submitFormCards (evt) {
   const linkValue = cardsLink.value;
   const taskString = createCard({ title: titleValue, src: linkValue});
   cardsContainer.prepend(taskString);
-//Очищаем поля формы  
+  //Очищаем поля формы  
   formCards.reset();
-//Деактивируем кнопку  
-  const buttonSubmit = formCards.querySelector('.popup__save-button');
+  //Деактивируем кнопку
   buttonSubmit.disabled = true;
   buttonSubmit.classList.add('popup__save-button_disabled');
   closePopup(cardPopup);
@@ -71,6 +72,8 @@ function submitFormCards (evt) {
 //Функция открытия popup
 function openPopup(openedPopup) {
   openedPopup.classList.add('popup_opened');
+  document.addEventListener('keydown', keyHandler);
+  document.addEventListener('click', closeByOverlay);
 }
 //Функция закрытия popup
 function closePopup(openedPopup) {
@@ -82,17 +85,11 @@ function closePopup(openedPopup) {
 function openPopupProfile() {
   inputName.value = profileName.textContent;
   inputJob.value = profileJob.textContent;
-  profilePopup.classList.add('popup_opened');
-  document.addEventListener('keydown', keyHandler);
-  document.addEventListener('click', closeByOverlay);
+  openPopup(profilePopup);
 }
-//Функция открытия PopupCards
-function openPopupCards() {
-  cardPopup.classList.add('popup_opened');
-  document.addEventListener('keydown', keyHandler);
-  document.addEventListener('click', closeByOverlay);
-}
-//Закрытие popup ESC
+//Открытие popup cards
+openCardsButton.addEventListener('click', () => openPopup(cardPopup));
+//Закрытие popup нажатием на ESC
 const keyHandler = (evt) => {
 if (evt.key === 'Escape') {
   const openedPopup = document.querySelector('.popup_opened');
@@ -125,4 +122,3 @@ formProfile.addEventListener('submit', function(evt) {
 cardsContainer.append(...result);
 formCards.addEventListener('submit', submitFormCards);
 openProfileButton.addEventListener('click', openPopupProfile);
-openCardsButton.addEventListener('click', openPopupCards);

@@ -1,4 +1,4 @@
-const initialCards = [
+export const initialCards = [
   {
     alt: 'Капова пещера',
     title: 'Капова пещера', 

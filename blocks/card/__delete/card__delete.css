@@ -1,4 +1,4 @@
-.element__delete {
+.card__delete {
   border: none;
   background: url(../../../images/Trash.svg) center no-repeat;
   background-size: 100%;
@@ -9,6 +9,6 @@
   top: 20px;
   right: 20px;
 }
-.element__delete:hover {
+.card__delete:hover {
   opacity: 0.6;
 }

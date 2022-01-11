@@ -43,7 +43,6 @@ const openCardsButton = document.querySelector('.profile__add-button');
 openCardsButton.addEventListener('click', () => openPopup(cardPopup));
 //Profile
 const profilePopup = document.querySelector('.popup_profile');
-const profileInput = profilePopup.querySelector('.popup__text');
 const profileElement = document.querySelector('.profile');
 const formProfile = document.querySelector('.popup__content-profile');
 const inputName = formProfile.querySelector('.popup__text_input_name');

@@ -1,4 +1,4 @@
-.element__like {
+.card__like {
   border: none;
   background: url(../../../images/Group.svg) center no-repeat;
   background-size: 100%;
@@ -7,6 +7,6 @@
   width: 22px;
   padding: 0 11px;
 }
-.element__like:hover {
+.card__like:hover {
   opacity: 0.5;
 }

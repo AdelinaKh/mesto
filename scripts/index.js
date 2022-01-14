@@ -34,12 +34,13 @@ const openProfileButton = profileElement.querySelector('.profile__open-button');
 const createCardItem = (...args) => new Card(...args, cardsTemplate, handleCardClick);
 //выводим массив карточек
 initialCards.forEach(item => {
-  const newCardInitial = createCardItem(item.title, item.src, item.alt, cardsTemplate, handleCardClick);
+  const newCardInitial = createCardItem(item.title, item.src, item.alt);
   cardsContainer.append(newCardInitial.render());
 })
 //реализация popupResize
 function handleCardClick(title, link) {
   popupImage.src = link;
+  popupImage.alt = title;
   popupImageTitle.innerText = title;
   openPopup(resizeElement);
 }
@@ -52,7 +53,7 @@ const submitFormCards = (evt) => {
   cardsContainer.prepend(taskString.render());
   //очищаем поля формы  
   formCards.reset();
-  validPopupCard.toggleButtonState(cardsName, cardsLink);
+  validPopupCard.toggleButtonState();
   closePopup(cardPopup);
 }
 formCards.addEventListener('submit', submitFormCards);
@@ -81,4 +82,3 @@ const validPopupCard = new FormValidator(formCards, config);
 validPopupCard.enableValidation();
 const validPopupProfile = new FormValidator(formProfile, config);
 validPopupProfile.enableValidation();
-

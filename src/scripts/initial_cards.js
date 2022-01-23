@@ -27,6 +27,6 @@ export const initialCards = [
   {
     alt: 'Водопад Атыш',
     title: 'Водопад Атыш', 
-    src: 'http://35photo.ru/photos_temp/sizes/418/2091942_800n.jpg'
+    src: 'https://uraloved.ru/images/mesta/bashkiriya/lemeza/atish-6.jpg'
   }
 ];

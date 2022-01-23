@@ -12,7 +12,7 @@ export const initialCards = [
   {
     alt: 'Инзерские зубчатки',
     title: 'Инзерские зубчатки', 
-    src: 'http://wiki02.ru/content/upload/bash/medium/5738-373.jpg'
+    src: 'https://go-ural.com/sites/default/files/2020-05/5705356.jpg'
   },
   {
     alt: 'Мурадымовское ущелье',

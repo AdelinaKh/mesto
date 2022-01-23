@@ -5,11 +5,11 @@ export class UserInfo {
   }
   getUserInfo() {
     return {
-      name: this._name,
-      job: this._job
+      name: this._userNameSelector.textContent ,
+      job: this._userjobSelector.textContent
     }
   }
-  setUserInfo(name, job) {
+  setUserInfo({name, job}) {
     this._userNameSelector.textContent = name;
     this._userjobSelector.textContent = job;
   }

@@ -12,7 +12,7 @@ export const initialCards = [
   {
     alt: 'Инзерские зубчатки',
     title: 'Инзерские зубчатки', 
-    src: 'https://nashural.ru/assets/uploads/tirlyan-i-zubchatky04.jpg'
+    src: 'https://sun9-8.userapi.com/p7MBtU5kpF1LO3bp-0AS7tX0tq24zNenM6Xhug/iEZ3nMUqeTM.jpg'
   },
   {
     alt: 'Мурадымовское ущелье',

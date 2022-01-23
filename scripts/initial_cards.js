@@ -2,31 +2,31 @@ export const initialCards = [
   {
     alt: 'Капова пещера',
     title: 'Капова пещера', 
-    src: 'images/CapovaPeshera.jpg'
+    src: 'https://kapovatur.ru/upload/landing/9f9/9f97d7aef3ec969d0d51b9eb015df1c8.jpg'
   },
   {
     alt: 'Гора Куштау', 
     title: 'Гора Куштау', 
-    src: 'images/GoraKushtay.jpg'
+    src: "https://oir.mobi/uploads/posts/2021-06/1623199120_46-oir_mobi-p-gora-shikhan-kushtau-priroda-krasivo-foto-49.jpg"
   },
   {
     alt: 'Инзерские зубчатки',
     title: 'Инзерские зубчатки', 
-    src: 'images/InzerskieZubchatki.jpg'
+    src: 'http://s3.fotokto.ru/photo/full/570/5705358.jpg'
   },
   {
     alt: 'Мурадымовское ущелье',
     title: 'Мурадымовское ущелье', 
-    src: 'images/MuradymovskoeUshelie.jpg'
+    src: 'http://s3.fotokto.ru/photo/full/324/3246682.jpg'
   },
   {
     alt: 'Нугушское водохранилище',
     title: 'Нугушское водохранилище', 
-    src: 'images/NugushskoeVodohranilishe.jpg'
+    src: 'https://tripplanet.ru/wp-content/uploads/europe/russia/ural/nugush-reservoir.jpg'
   },
   {
     alt: 'Водопад Атыш',
     title: 'Водопад Атыш', 
-    src: 'images/VodopadAtysh.jpg'
+    src: 'http://ufa-splav.ru/files/pohodi/atish/atysh_1.jpg'
   }
 ];

@@ -12,12 +12,12 @@ export const initialCards = [
   {
     alt: 'Инзерские зубчатки',
     title: 'Инзерские зубчатки', 
-    src: 'http://s3.fotokto.ru/photo/full/570/5705358.jpg'
+    src: 'http://wiki02.ru/content/upload/bash/medium/5738-373.jpg'
   },
   {
     alt: 'Мурадымовское ущелье',
     title: 'Мурадымовское ущелье', 
-    src: 'http://s3.fotokto.ru/photo/full/324/3246682.jpg'
+    src: 'https://a.d-cd.net/nQAAAgFyC-A-1920.jpg'
   },
   {
     alt: 'Нугушское водохранилище',
@@ -27,6 +27,6 @@ export const initialCards = [
   {
     alt: 'Водопад Атыш',
     title: 'Водопад Атыш', 
-    src: 'http://ufa-splav.ru/files/pohodi/atish/atysh_1.jpg'
+    src: 'http://35photo.ru/photos_temp/sizes/418/2091942_800n.jpg'
   }
 ];

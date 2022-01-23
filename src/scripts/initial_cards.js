@@ -12,7 +12,7 @@ export const initialCards = [
   {
     alt: 'Инзерские зубчатки',
     title: 'Инзерские зубчатки', 
-    src: 'https://sun9-8.userapi.com/p7MBtU5kpF1LO3bp-0AS7tX0tq24zNenM6Xhug/iEZ3nMUqeTM.jpg'
+    src: 'http://ufa-splav.ru/files/pohodi/inzerskie_zubchatki/inzerskie_zubchatki_3.jpg'
   },
   {
     alt: 'Мурадымовское ущелье',

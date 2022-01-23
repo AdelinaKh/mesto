@@ -12,7 +12,7 @@ export const initialCards = [
   {
     alt: 'Инзерские зубчатки',
     title: 'Инзерские зубчатки', 
-    src: 'https://go-ural.com/sites/default/files/2020-05/5705356.jpg'
+    src: 'https://i.servimg.com/u/f59/19/95/85/66/m7velx10.jpg'
   },
   {
     alt: 'Мурадымовское ущелье',

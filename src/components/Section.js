@@ -4,12 +4,11 @@ export class Section {
     this._container = container;
     this._renderer = renderer;
   }
-  addItem(element) {
-    this._container.prepend(element)
+  addItem(item) {
+    this._container.prepend(item);
   }
   renderItem() {
     Array.from(this._renderedItems).forEach(item => {
-      this._renderer(item);
       this.addItem(this._renderer(item));
     });
   }

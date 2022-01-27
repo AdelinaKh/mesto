@@ -12,7 +12,7 @@ export const initialCards = [
   {
     alt: 'Инзерские зубчатки',
     title: 'Инзерские зубчатки', 
-    src: 'https://img.tourister.ru/files/2/3/0/8/4/8/2/6/original.jpg'
+    src: 'https://s3.nat-geo.ru/images/2019/5/16/f6755918f9f3476991966ac7140e11ee.max-1200x800.jpg'
   },
   {
     alt: 'Мурадымовское ущелье',

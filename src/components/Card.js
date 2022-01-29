@@ -1,8 +1,9 @@
 export class Card {
-  constructor(title, src, alt, template, handleCardClick) {
-    this._title = title;
-    this._src = src;
-    this._alt = alt;
+  constructor(text, link, template, handleCardClick) {
+    this._text = text;
+    this._link = link;
+    // this._src = src;
+    // this._alt = alt;
     this._template = template;
     this._handleCardClick = handleCardClick;
   }
@@ -22,15 +23,15 @@ export class Card {
     likeButton.addEventListener('click', () => {likeButton.classList.toggle('card__like_active')});
     //открываем карточку
     this._cardImage.addEventListener('click', () => {
-      this._handleCardClick(this._title, this._src);
+      this._handleCardClick(this._text, this._link);
     });
   }
   render(container) {
     this._createElement();
     this._cardImage = this._element.querySelector('.card__image');
-    this._element.querySelector('.card__title').innerText = this._title;
-    this._cardImage.src = this._src;
-    this._cardImage.alt = this._alt;
+    this._element.querySelector('.card__title').innerText = this._text;
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._text;
     this._addEventListeners();
     return this._element;
   }

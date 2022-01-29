@@ -33,14 +33,14 @@ const cardList = new Section({ data: initialCards, renderer }, cardsContainer);
 cardList.renderItem();
 //реализация popupResize
 const popupImg = new PopupWithImage('.popup_resize', popupImageTitle, popupImage);
+popupImg.setEventListeners();
 function handleCardClick(title, link) {
-  popupImg.setEventListeners();
   popupImg.open(title, link);
 }
 //открытие PopupCards
 const popupAddCard = new PopupWithForm('.popup_cards', submitHandlerCards);
+popupAddCard.setEventListeners();
 const openPopupCards = () => {
-  popupAddCard.setEventListeners();
   popupAddCard.open();
   formValidators[ formCards.getAttribute('name') ].resetValidation();
 }
@@ -56,11 +56,11 @@ function submitHandlerProfile(evt, {title, subtitle}) {
   initialUser.setUserInfo({ name: title, job: subtitle });
 }
 const popupEditProfile = new PopupWithForm('.popup_profile', submitHandlerProfile);
+popupEditProfile.setEventListeners();
 const openPopupProfile = () => {
   const initialUserInfo = initialUser.getUserInfo();
   inputName.value = initialUserInfo.name;
   inputJob.value = initialUserInfo.job;
-  popupEditProfile.setEventListeners();
   popupEditProfile.open();
   formValidators[ formProfile.getAttribute('name') ].resetValidation();
 }

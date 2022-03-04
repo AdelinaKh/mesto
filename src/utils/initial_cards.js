@@ -7,7 +7,7 @@ export const initialCards = [
   {
     alt: 'Гора Куштау', 
     title: 'Гора Куштау', 
-    src: "https://oir.mobi/uploads/posts/2021-06/1623199120_46-oir_mobi-p-gora-shikhan-kushtau-priroda-krasivo-foto-49.jpg"
+    src: "http://dofa.news/wp-content/uploads/1-431.jpg"
   },
   {
     alt: 'Инзерские зубчатки',

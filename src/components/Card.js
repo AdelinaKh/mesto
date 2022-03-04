@@ -1,30 +1,59 @@
 export class Card {
-  constructor(text, link, template, handleCardClick) {
-    this._text = text;
-    this._link = link;
-    // this._src = src;
-    // this._alt = alt;
+  constructor(cardInfo, user,template, handlerCardClick, handlerDeleteCard, handlerCardLike, api) {
+    this._card = cardInfo;
+    this._text = cardInfo.name;
+    this._link = cardInfo.link;
+    this._like = cardInfo.likes;
+    this._id = cardInfo._id;
+    this._owner = cardInfo.owner;
+    this._user = user;
+    this._api = api;
     this._template = template;
-    this._handleCardClick = handleCardClick;
+    this._handlerCardClick = handlerCardClick;
+    this._handlerDeleteCard = handlerDeleteCard;
+    this._handlerCardLike = handlerCardLike;
   }
   _createElement() {
     this._element = this._template.content.querySelector('.card').cloneNode(true);
   }
-  //метод удаления карточки
-  _removeElement = () => {
-    this._element.remove();
-  }
   //методы добавления слушателей
   _addEventListeners() {
-    //удаляем карточку
-    this._element.querySelector('.card__delete').addEventListener('click', this._removeElement);
-    //ставим лайк
-    const likeButton = this._element.querySelector('.card__like');
-    likeButton.addEventListener('click', () => {likeButton.classList.toggle('card__like_active')});
+    //ставим лайк 
+    this._likeButton.addEventListener('click', () => this._handlerCardLike(this));
     //открываем карточку
-    this._cardImage.addEventListener('click', () => {
-      this._handleCardClick(this._text, this._link);
-    });
+    this._cardImage.addEventListener('click', () => this._handlerCardClick(this._text, this._link));
+    //удаляем карточку
+    this._deleteBtn.addEventListener('click', () => this._handlerDeleteCard());
+    //проверяем создателя карточек
+    if (this._user !== this._owner._id) {
+      this._deleteBtn = this._element.querySelector('.card__delete').classList.add('card__delete-none');
+    }
+  }
+  //переключаем лайк
+  _toggleLike() {
+    if(this._checkUser()) {
+      this.setLike();
+    } else {
+      this.unsetLike();
+    }
+  }
+  //обновляем инф-ию 
+  updateLikes(data) {
+    this._likeCounter.textContent = data.length;
+  }
+  //ставим лайк
+  setLike() {
+    this._likeButton.classList.add('card__like_active');
+    this.isLiked = true;
+  }
+  //убираем лайк
+  unsetLike() {
+    this._likeButton.classList.remove('card__like_active');
+    this.isLiked = false;
+  }
+  _checkUser() {
+    const even = (item) => item._id === this._id;
+    return this._like.some(even);
   }
   render(container) {
     this._createElement();
@@ -32,6 +61,12 @@ export class Card {
     this._element.querySelector('.card__title').innerText = this._text;
     this._cardImage.src = this._link;
     this._cardImage.alt = this._text;
+    this._likeButton = this._element.querySelector('.card__like');
+    this._likeCounter = this._element.querySelector('.card__heart');
+    this._confirmBtn = document.querySelector('.popup_delete-card').querySelector('.popup__save-button');
+    this._deleteBtn = this._element.querySelector('.card__delete');
+    this._toggleLike();
+    this._likeCounter.textContent = this._like.length;
     this._addEventListeners();
     return this._element;
   }

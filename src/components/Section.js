@@ -5,7 +5,7 @@ export class Section {
     this._api = api;
   }
   addItem(item) {
-    this._container.append(item);
+    this._container.prepend(item);
   }
   renderItems(data) {
     data.forEach(item => {

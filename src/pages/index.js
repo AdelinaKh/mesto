@@ -28,7 +28,7 @@ const openProfileButton = profileElement.querySelector('.profile__open-button');
 const openCardsButton = document.querySelector('.profile__add-button');
 const formAvatar = document.querySelector('.popup__content-avatar');
 const inputAvatarLink = formAvatar.querySelector('.popup__text_input_link');
-const openAvatarEdit = document.querySelector('.profile__icon');
+const openAvatarEdit = document.querySelector('.profile__avatar');
 const submitBtn = formAvatar.querySelector('.popup__save-button');
 
 const api = new Api({
@@ -66,8 +66,11 @@ Promise.all([api.getInitialCards(), api.getUserInfo()])
     initialUser.setUserInfo({ name: userData.name, job: userData.about });
     avatar = userData.avatar;
     initialUser.setAvatarInfo(userData.avatar);
-  })
-//ставим/убираем лайк
+    })
+    .catch((err) => {
+      console.log(`Ошибка: ${err}`);
+    })
+  //ставим/убираем лайк
   function handlerCardLike() {
     if(this.isLiked) {
       api.deleteLike(this._id)
@@ -80,13 +83,13 @@ Promise.all([api.getInitialCards(), api.getUserInfo()])
         })
     } else {
       api.postLike(this._id)
-      .then((data) => {
-        this.setLike();
-        this.updateLikes(data.likes);
-      })
-      .catch((err) => {
-        console.log(`Ошибка: ${err}`);
-      })
+        .then((data) => {
+          this.setLike();
+          this.updateLikes(data.likes);
+        })
+        .catch((err) => {
+          console.log(`Ошибка: ${err}`);
+        })
     }
   }
 //открытие PopupCards
@@ -98,7 +101,6 @@ const openPopupCards = () => {
 }
 //добавление новых карточек
 function submitHandlerCards(evt, {title, subtitle}) {
-  //debugger
   evt.preventDefault();
   popupAddCard.renderLoading(true);
   api.postNewCard({title, subtitle})
@@ -132,14 +134,17 @@ function submitHandlerProfile(evt, {title, subtitle}) {
 }
 //удаление карточки
 const popupDeleteCard = new PopupWithConfirm('.popup_delete-card');
-
+popupDeleteCard.setEventListeners();
 function handlerDeleteCard() {
   popupDeleteCard.open();
-  confirmBtn.addEventListener('click', () => {
+  popupDeleteCard.setSubmitAction(() => {
     api.deleteCard(this._id)
       .then((data) => {
         this._element.remove();
         popupDeleteCard.close();
+      })
+      .catch((err) => {
+        console.log(`Ошибка: ${err}`);
       })
   })
 }

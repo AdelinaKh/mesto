@@ -23,7 +23,7 @@ export class Card {
     //открываем карточку
     this._cardImage.addEventListener('click', () => this._handlerCardClick(this._text, this._link));
     //удаляем карточку
-    this._deleteBtn.addEventListener('click', () => this._handlerDeleteCard());
+    this._deleteBtn.addEventListener('click', () => this._handlerDeleteCard(this));
     //проверяем создателя карточек
     if (this._user !== this._owner._id) {
       this._deleteBtn = this._element.querySelector('.card__delete').classList.add('card__delete-none');
@@ -52,7 +52,7 @@ export class Card {
     this.isLiked = false;
   }
   _checkUser() {
-    const even = (item) => item._id === this._id;
+    const even = (item) => item._id === this._user;
     return this._like.some(even);
   }
   render(container) {

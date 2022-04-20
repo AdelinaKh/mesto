@@ -1,5 +1,5 @@
 # Проект: Место
----
+
  Одностраничный сайт с функционалом instagram. Сайт полностью адаптирован, подключен к API. Валидация форм и создание карточек написаны по ООП. Проект собран Webpack.
 
  На JavaScript реализованы: 
@@ -10,10 +10,9 @@
  - редактирование аватара; 
  - все формы валидируются с помощью LiveValidation.
 
-Используемые языки: HTML5, CSS, JavaScript, API, Webpack.
 
-Инструкция по установке:
----
+## Инструкция по установке:
+
 
 git clone https://github.com/AdelinaKh/mesto.git
 
@@ -25,6 +24,9 @@ npm run build
 
 npm run dev
 
+---
+Используемые языки: HTML, CSS, JavaScript, API, Webpack.
 
 Ссылка на сайт: https://adelinakh.github.io/mesto/index.html
 
+Статус проекта: планируется изменить внешний вид попапов.
